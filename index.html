@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DiM — Portfolio</title>
+    <meta name="description" content="DiM (dɪm · he/him/his) — I dabble in Python, bash, C++, and QML. Proud Pastafarian. Portfolio with live GitHub integration." />
+    <meta name="author" content="DiM" />
+    <meta name="theme-color" id="meta-theme-color" content="#f4effb" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="DiM — Portfolio" />
+    <meta property="og:description" content="dɪm · he/him/his · United States — I dabble in Python, bash, C++, and QML. Proud Pastafarian." />
+    <meta property="og:url" content="https://dim.contact/" />
+    <meta property="og:site_name" content="DiM" />
+    <link rel="icon" href="/Portfolio/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <!-- ======== Top app bar ======== -->
+      <header class="app-bar">
+        <a href="#hero" class="app-bar__brand">
+          <img class="app-bar__avatar" id="nav-avatar" alt="" width="32" height="32" />
+          <span class="app-bar__name">DiM</span>
+        </a>
+        <nav class="app-bar__nav" aria-label="Primary">
+          <a href="#hero" class="app-bar__link"><md-text-button>About</md-text-button></a>
+          <a href="#github" class="app-bar__link"><md-text-button>GitHub</md-text-button></a>
+          <a href="#projects" class="app-bar__link"><md-text-button>Projects</md-text-button></a>
+          <a href="#contact" class="app-bar__link"><md-text-button>Contact</md-text-button></a>
+        </nav>
+        <md-icon-button id="theme-toggle" aria-label="Toggle color scheme" title="Toggle light / dark">
+          <md-icon id="theme-icon">light_mode</md-icon>
+        </md-icon-button>
+      </header>
+
+      <main>
+        <!-- ======== Hero ======== -->
+        <section id="hero" class="hero section">
+          <div class="hero__card">
+            <img class="hero__avatar" id="hero-avatar" alt="DiM's avatar" width="160" height="160" />
+            <h1 class="hero__name">DiM</h1>
+            <p class="hero__meta">
+              <span class="pronounce">dɪm</span>
+              <span aria-hidden="true">·</span>
+              <span>he/him/his</span>
+              <span aria-hidden="true">·</span>
+              <span>United States</span>
+            </p>
+            <p class="hero__bio" id="hero-bio"></p>
+            <div class="hero__actions">
+              <a href="https://github.com/dim-ghub" target="_blank" rel="noopener">
+                <md-filled-button class="icon-leading">
+                  <md-icon slot="icon">
+                    <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+                  </md-icon>
+                  GitHub
+                </md-filled-button>
+              </a>
+              <a href="https://matrix.to/#/@d-im:beeper.com" target="_blank" rel="noopener">
+                <md-filled-tonal-button class="icon-leading">
+                  <md-icon slot="icon">forum</md-icon>
+                  Matrix
+                </md-filled-tonal-button>
+              </a>
+              <a href="mailto:dim@dim.contact">
+                <md-outlined-button class="icon-leading">
+                  <md-icon slot="icon">mail</md-icon>
+                  Email
+                </md-outlined-button>
+              </a>
+            </div>
+            <div class="hero__stats" id="hero-stats">
+              <span class="chip-static"><b>—</b> repos</span>
+              <span class="chip-static"><b>—</b> followers</span>
+              <span class="chip-static"><b>—</b> following</span>
+              <span class="chip-static"><b>—</b> stars earned</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ======== GitHub ======== -->
+        <section id="github" class="section">
+          <div class="section__head">
+            <div>
+              <h2 class="section__title">GitHub</h2>
+              <p class="section__subtitle">Live from the GitHub REST API — no caching, straight from the source.</p>
+            </div>
+            <md-outlined-button id="refresh-btn" class="icon-leading">
+              <md-icon slot="icon">refresh</md-icon>
+              Refresh
+            </md-outlined-button>
+          </div>
+
+          <md-circular-progress id="github-loading" class="loader" indeterminate aria-label="Loading GitHub data"></md-circular-progress>
+
+          <div id="github-error" class="banner" hidden>
+            <md-icon class="banner__icon">error</md-icon>
+            <div>
+              <b>Couldn't reach the GitHub API.</b>
+              <span id="github-error-msg">Anonymous requests are rate-limited to 60/hour.</span>
+            </div>
+            <md-text-button id="retry-btn">Retry</md-text-button>
+          </div>
+
+          <div id="github-content" hidden>
+            <div class="stat-grid" id="stat-grid"></div>
+
+            <div class="card-grid card-grid--two">
+              <md-outlined-card class="panel">
+                <h3 class="panel__title">Languages</h3>
+                <div id="languages" class="languages"></div>
+              </md-outlined-card>
+              <md-outlined-card class="panel">
+                <h3 class="panel__title">Achievements</h3>
+                <div id="achievements" class="achievements"></div>
+              </md-outlined-card>
+            </div>
+          </div>
+        </section>
+
+        <!-- ======== Projects ======== -->
+        <section id="projects" class="section">
+          <div class="section__head">
+            <div>
+              <h2 class="section__title">Projects</h2>
+              <p class="section__subtitle">Top repositories by stars, straight from GitHub.</p>
+            </div>
+            <a href="https://github.com/dim-ghub?tab=repositories" target="_blank" rel="noopener">
+              <md-outlined-button class="icon-leading">
+                <md-icon slot="icon">open_in_new</md-icon>
+                All repositories
+              </md-outlined-button>
+            </a>
+          </div>
+          <div id="projects" class="project-grid"></div>
+        </section>
+
+        <!-- ======== Activity ======== -->
+        <section id="activity" class="section">
+          <div class="section__head">
+            <div>
+              <h2 class="section__title">Recent activity</h2>
+              <p class="section__subtitle">Latest public events from the GitHub API.</p>
+            </div>
+          </div>
+          <md-circular-progress id="activity-loading" class="loader" indeterminate aria-label="Loading activity"></md-circular-progress>
+          <div id="activity-empty" class="banner" hidden>
+            <md-icon class="banner__icon">info</md-icon>
+            <span>No recent public activity.</span>
+          </div>
+          <md-outlined-card class="panel" id="activity-panel" hidden>
+            <md-list id="activity-list" class="activity-list"></md-list>
+          </md-outlined-card>
+        </section>
+
+        <!-- ======== Contact ======== -->
+        <section id="contact" class="section">
+          <h2 class="section__title">Contact</h2>
+          <p class="section__subtitle">Say hi — or send me money, if you're feeling generous.</p>
+          <div class="contact-grid">
+            <md-elevated-card class="contact-card">
+              <md-icon class="contact-card__icon">mail</md-icon>
+              <h3>Email</h3>
+              <p>dim@dim.contact</p>
+              <a href="mailto:dim@dim.contact"><md-filled-button class="icon-leading"><md-icon slot="icon">send</md-icon>Write</md-filled-button></a>
+            </md-elevated-card>
+            <md-elevated-card class="contact-card">
+              <md-icon class="contact-card__icon">forum</md-icon>
+              <h3>Matrix</h3>
+              <p>@d-im:beeper.com</p>
+              <a href="https://matrix.to/#/@d-im:beeper.com" target="_blank" rel="noopener"><md-filled-button class="icon-leading"><md-icon slot="icon">open_in_new</md-icon>Message</md-filled-button></a>
+            </md-elevated-card>
+            <md-elevated-card class="contact-card">
+              <md-icon class="contact-card__icon">account_balance_wallet</md-icon>
+              <h3>PayPal</h3>
+              <p>paypal.me/MRudim</p>
+              <a href="https://www.paypal.me/MRudim" target="_blank" rel="noopener"><md-filled-button class="icon-leading"><md-icon slot="icon">south_west</md-icon>Send money</md-filled-button></a>
+            </md-elevated-card>
+            <md-elevated-card class="contact-card">
+              <md-icon class="contact-card__icon">qr_code_2</md-icon>
+              <h3>Cash App</h3>
+              <p>$MattRds</p>
+              <a href="https://cash.app/$MattRds" target="_blank" rel="noopener"><md-filled-button class="icon-leading"><md-icon slot="icon">south_west</md-icon>Send money</md-filled-button></a>
+            </md-elevated-card>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>
+          © <span id="year">2026</span> DiM · Built with
+          <a href="https://m3.material.io/" target="_blank" rel="noopener">Material Design 3</a> ·
+          <a href="https://github.com/dim-ghub/Portfolio" target="_blank" rel="noopener">Source</a>
+        </p>
+        <p class="footer__note">GitHub data is live — fetched straight from the REST API on every load.</p>
+      </footer>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
